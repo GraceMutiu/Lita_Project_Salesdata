@@ -29,7 +29,7 @@ The sales data of the retail store was provided by the facilitators for the fina
 
   ![image](https://github.com/user-attachments/assets/54970629-34b3-4f53-96fc-f870390be347)
 
-  iv. A pivot table was also created to show the total sales per month. There are two years with the first year running from January till December and the second year running from January to August.
+  iv. A pivot table was also created to show the total sales per month. There are two years with the first year running from January till December and the second year running from January to August. 
 
   ![image](https://github.com/user-attachments/assets/9da98cd3-0e04-4491-9f09-06014e6354ef)
 
@@ -60,6 +60,8 @@ The sales data of the retail store was provided by the facilitators for the fina
 
 =SUMIF(D2:D9922,"East",H2:H9922)
 ```
+#### Summary
+From the analysis carried out, it was noticed that shirt had the highest average sales while hat had the least average sales. Calculating total sales by region indicated most of the sales come from the south and the least sales comes from the west. It was noticed that most of the sales happened in February for both 2023 and 2024.
 
 - SQL: The data was imported from excel into sql by converting the excel file into csv file. After the data was imported, there were several null values values so that was removed first using the query below.
 

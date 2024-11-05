@@ -115,7 +115,17 @@ sum(quantity) as RegionalSales,
 from SalesData
 group by Region;
 ```
-
+  -Products with no sales in the last quarter
+``` SQL
+select product 
+from SalesData    
+where Product not in (
+select distinct Product 
+from SalesData
+where OrderDate >= '2024-04-01' and orderdate <= '2024-06-01'
+)
+group by Product
+```
 
 
 

@@ -14,8 +14,9 @@ The sales data of the retail store was provided by the facilitators for the fina
 
 ### Steps Taken
 1. Data Cleaning
-- Removing Duplicates: The data was cleaned using excel to remove duplicates. There were 50,000 rows before the duplicates were removed resulting in 9.921 rows left.
+- Removing Duplicates: The data was cleaned using excel to remove duplicates. There were 50,000 rows before the duplicates were removed resulting in 9,921 rows left.
 - Pivot Tables: The data was summarized using pivot tables to create total sales by product, region, and month tables.
+  
   i. This image shows the pivot table containing the total sales by product, region, and month.
 
   ![image](https://github.com/user-attachments/assets/8c298b73-0911-4142-8e74-df27065e912f)
@@ -31,6 +32,19 @@ The sales data of the retail store was provided by the facilitators for the fina
   iv. A pivot table was also created to show the total sales per month. There are two years with the first year running from January till December and the second year running from January to August.
 
   ![image](https://github.com/user-attachments/assets/9da98cd3-0e04-4491-9f09-06014e6354ef)
+
+2. Data Analysis
+- Microsoft Excel: Excel formulas were to calculate metrics such as average sales per product and total revenue by region.
+  --Average sales per product
+``` Excel
+=AVERAGEIF(C2:C9922, "shirt", H2:H9922)
+=AVERAGEIF(C2:C9922, "shoes", H2:H9922)
+=AVERAGEIF(C2:C9922, "gloves", H2:H9922)
+=AVERAGEIF(C2:C9922, "socks", H2:H9922)
+=AVERAGEIF(C2:C9922, "hat", H2:H9922)
+=AVERAGEIF(C2:C9922, "jacket", H2:H9922)
+```
+
 
 
 

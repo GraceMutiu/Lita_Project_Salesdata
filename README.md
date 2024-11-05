@@ -1,6 +1,12 @@
 # Lita_Project_Salesdata
 This is where the project given at the end of the data analysis training is documented.
 
+### Table of Content
+- [Project Overview](#project-overview)
+- [Data Source](#data-source)
+- [Tools and Techniques](#tools-and-techniques)
+- [Steps Taken](#steps-taken)
+
 ### Project Overview
 This project is to demonstrate the workflow for analyzing a dataset that contains sales data of a retail store using Microsoft Excel, SQL Server and PowerBi. The goal of the project is to showcase how the data can be transformed, analyzed, and visualized to generate actionable insight and to produce an interactive PowerBi dashboard for reporting and decision making. The sales performance was analyzed to know the top-selling products, regional performance, monthly sales and many more.
 
@@ -128,7 +134,8 @@ where OrderDate >= '2024-04-01' and orderdate <= '2024-06-01'
 )
 group by Product
 ```
-
+#### Summary 
+Using the number of sales for each product, it was discovered that the highest selling product was hat and the lowest was jackets. The region that had the highest sales percentage was the south. In the previous quarter, shirts, hats, shoes and gloves had no sales.
 
 
 

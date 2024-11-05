@@ -8,7 +8,7 @@ This project is to demonstrate the workflow for analyzing a dataset that contain
 The sales data of the retail store was provided by the facilitators for the final project of the training. The dataset contains the orderid, customerid, product, region, quantity, order date and unit price.
 
 ### Tools and Techniques
-- Microsoft Excel: This was used for the initial data cleaning, calculation of metrics such as average sales and total revenue.and creation of pivot tables to summarise the data.
+- Microsoft Excel: This was used for the initial data cleaning, calculation of metrics such as average sales and total revenue and creation of pivot tables to summarise the data.
 - SQL Server: This was used for querying and manipulating the dataset. It was used to extract insights such as top-selling product, revenue per region and many more.
 - Power BI: This wass used to create interactive visualizations and dashboards that provide a summary of the data analysis results.
 
@@ -35,15 +35,91 @@ The sales data of the retail store was provided by the facilitators for the fina
 
 2. Data Analysis
 - Microsoft Excel: Excel formulas were to calculate metrics such as average sales per product and total revenue by region.
-  --Average sales per product
+
+  -Average sales per product
 ``` Excel
 =AVERAGEIF(C2:C9922, "shirt", H2:H9922)
+
 =AVERAGEIF(C2:C9922, "shoes", H2:H9922)
+
 =AVERAGEIF(C2:C9922, "gloves", H2:H9922)
+
 =AVERAGEIF(C2:C9922, "socks", H2:H9922)
+
 =AVERAGEIF(C2:C9922, "hat", H2:H9922)
+
 =AVERAGEIF(C2:C9922, "jacket", H2:H9922)
 ```
+   -Total revenue by region
+``` Excel
+=SUMIF(D2:D9922,"North",H2:H9922)
+
+=SUMIF(D2:D9922,"South",H2:H9922)
+
+=SUMIF(D2:D9922,"West",H2:H9922)
+
+=SUMIF(D2:D9922,"East",H2:H9922)
+```
+
+- SQL: The data was imported from excel into sql by converting the excel file into csv file. After the data was imported, there were several null values values so that was removed first using the query below.
+
+```SQL
+delete from salesdata
+where customer_id is null
+```
+After the data was cleaned, different queries were executed to extract key information from the dataset.
+
+   -Total sales for each product
+   ``` SQL
+select sum(Quantity) as Salesperproduct, Product from SalesData
+group by Product
+```
+   -Number of sales transaction in each region
+``` SQL
+select region, count(*) as TransactionperRegion
+from SalesData
+group by region
+```
+   -Highest selling product by total sales
+``` SQL
+select top 1 Product, sum(quantity) as SalesperProduct
+from SalesData
+group by Product
+order by SalesperProduct desc
+```
+  -Total revenue per product
+``` SQL
+select sum(totalsales) as TotalRevenueperProduct, product from SalesData
+group by product
+```
+  -Monthly sales for current year
+``` SQL
+select datepart(month, orderdate) as month, sum(quantity) as MonthlySales
+from SalesData
+where year(orderdate) = year(GETDATE())
+group by datepart(month, orderdate)
+order by datepart(month, orderdate)
+```
+  -Top 5 customers
+``` SQL
+select top 5 customer_id, sum(totalsales) as Totalpurchaseamount
+from SalesData
+group by Customer_Id
+order by Totalpurchaseamount desc
+```
+  -Percentage of total sales contributed by each region
+``` SQL
+select region,
+sum(quantity) as RegionalSales,
+(sum(quantity) * 100 / sum(sum(quantity)) over()) as Percentagesales
+from SalesData
+group by Region;
+```
+
+
+
+
+
 
 
 
